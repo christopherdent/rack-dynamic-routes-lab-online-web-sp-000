@@ -2,7 +2,7 @@
 
 class Application
   attr_reader :headers, :body, :request
-
+=begin 
   def initialize(&block)
     @block = block
     @status = 200
@@ -25,33 +25,25 @@ class Application
   end
 
 end
+=end 
 
 
 
-
-
-
-
-
-
-
-
-=begin   
-@@item = [] 
-
+class Application
+ 
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
-    
+ 
     if req.path=="/items/"
-        [200, {"Content-Type" => "text/html"}, ["Hello World!"]]
+      resp.write "You requested the songs"
     else
-       [400, {"Content-Type" => "text/html"}, ["Route not found"]]
+      resp.write "Route not found"
+      resp.status = 404
     end
+ 
     resp.finish
   end
+end
 
-end 
-=end 
-# resp.write "Route not found"
- #      resp.status = 404
+
