@@ -1,7 +1,8 @@
 
 
 class Application
-  attr_reader :headers, :body, :request
+
+  @@items = []
 
  
   def call(env)
