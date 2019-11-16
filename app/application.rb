@@ -10,7 +10,7 @@ class Application
     req = Rack::Request.new(env)
  
     if req.path=="/items"
-      resp.write Item.new(name, price)
+      resp.write item.price 
       resp.status = 200 
     
     
