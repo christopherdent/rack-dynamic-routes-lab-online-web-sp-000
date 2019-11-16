@@ -18,7 +18,13 @@ class Application
     request.params
   end
 
+  def call(env)
+    @request = Rack::Request.new(env)
+    @body = self.instance_eval(&@block)
+    [status, headers, [body]]
+  end
 
+end
 =end 
 
 
@@ -41,10 +47,3 @@ class Application
 end
 
 
-  def call(env)
-    @request = Rack::Request.new(env)
-    @body = self.instance_eval(&@block)
-    [status, headers, [body]]
-  end
-
-end
