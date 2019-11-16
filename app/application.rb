@@ -35,7 +35,7 @@ end
     resp = Rack::Response.new
     req = Rack::Request.new(env)
  
-    if req.path=="/items/"
+    if req.path=="/items"
       resp.write "You requested the songs"
     else
       resp.write "Route not found"
