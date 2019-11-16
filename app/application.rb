@@ -9,7 +9,7 @@ class Application
     req = Rack::Request.new(env)
  
     if req.path=="/items"
-      resp.write Item.new
+      resp.write Item.new()
       resp.status = 200 
     else
       resp.write "Route not found"
