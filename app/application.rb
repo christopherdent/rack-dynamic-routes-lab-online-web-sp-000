@@ -10,7 +10,9 @@ class Application
     req = Rack::Request.new(env)
  
     if req.path=="/items"
+      item_name = req.path.split("/items/").last
       item = @@items.detect { |i| i.name == item_name }
+      
       resp.write item.price 
       resp.status = 200 
     
